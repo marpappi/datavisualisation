@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-B2ootaw-.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-CxL0S8W7.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-D9fedIX3.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-BTCkDNvf.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-DU3aDxX5.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-CLVRCuM9.ttf" as="font" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        var scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          var element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          var hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          var newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((entries) => {
+          setHeight();
+        });
+        resizeObserver.observe(obj.contentWindow.document.body);
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <marimo-mode data-mode='read' hidden></marimo-mode>
+    <marimo-version data-version='0.13.0' hidden></marimo-version>
+    <marimo-user-config data-config='{"completion": {"activate_on_typing": true, "copilot": false}, "display": {"code_editor_font_size": 14, "theme": "light", "dataframes": "rich", "cell_output": "above", "default_table_page_size": 10, "default_width": "medium"}, "formatting": {"line_length": 79}, "keymap": {"preset": "default", "overrides": {}}, "runtime": {"auto_instantiate": true, "auto_reload": "off", "reactive_tests": true, "on_cell_change": "autorun", "watcher_on_save": "lazy", "output_max_bytes": 8000000, "std_stream_max_bytes": 1000000}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "package_management": {"manager": "pip"}, "server": {"browser": "default", "follow_symlink": false}, "language_servers": {"pylsp": {"enabled": true, "enable_mypy": true, "enable_ruff": true, "enable_flake8": false, "enable_pydocstyle": false, "enable_pylint": false, "enable_pyflakes": false}}, "snippets": {"custom_paths": [], "include_default_snippets": true}}' data-overrides='{}' hidden></marimo-user-config>
+    <marimo-app-config data-config='{"width": "medium", "sql_output": "auto"}' hidden></marimo-app-config>
+    <marimo-server-token data-token='123' hidden></marimo-server-token>
+    <title> test3</title>
+    <script type="module" crossorigin src="./assets/index-B2CDK72T.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CsvvdqXP.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    <marimo-code hidden="" data-show-code="false">import%20marimo%0A%0A__generated_with%20%3D%20%220.13.0%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20return%20(mo%2C)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20pandas%20as%20pd%0A%20%20%20%20return%20(pd%2C)%0A%0A%0A%40app.cell%0Adef%20_(pd)%3A%0A%20%20%20%20df%20%3D%20pd.read_csv(%22C%3A%2FUsers%2Fpappi%2FOneDrive%2FBureaublad%2FLessen%2FData%20Visualisation%2Ftdf_stages.csv%22)%0A%20%20%20%20return%20(df%2C)%0A%0A%0A%40app.cell%0Adef%20_(df)%3A%0A%20%20%20%20df%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20%23%20Create%20a%20slider%20for%20selecting%20the%20year%20using%20correct%20parameter%20names%0A%20%20%20%20year_slider%20%3D%20mo.ui.slider(1903%2C%202017)%0A%20%20%20%20return%20(year_slider%2C)%0A%0A%0A%40app.cell%0Adef%20_(df%2C%20pd)%3A%0A%20%20%20%20df%5B%22Date%22%5D%20%3D%20pd.to_datetime(df%5B%22Date%22%5D)%20%20%23%20Convert%20to%20datetime%20format%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(df%2C%20mo%2C%20year_slider)%3A%0A%20%20%20%20import%20geopandas%20as%20gpd%0A%20%20%20%20import%20matplotlib.pyplot%20as%20plt%0A%20%20%20%20import%20plotly.express%20as%20px%0A%0A%0A%20%20%20%20%23%20Load%20the%20world%20shapefile%0A%20%20%20%20shapefile_path%20%3D%20%22C%3A%2FUsers%2Fpappi%2FOneDrive%2FBureaublad%2FLessen%2FData%20Visualisation%2Fne_110m_admin_0_countries%2Fne_110m_admin_0_countries.shp%22%0A%20%20%20%20world%20%3D%20gpd.read_file(shapefile_path)%0A%0A%20%20%20%20%23%20Rename%20column%20if%20needed%0A%20%20%20%20if%20%22ADM0_A3%22%20in%20world.columns%3A%0A%20%20%20%20%20%20%20%20world%20%3D%20world.rename(columns%3D%7B%22ADM0_A3%22%3A%20%22iso_a3%22%7D)%0A%0A%0A%0A%20%20%20%20selected_year%20%3D%20year_slider.value%20%20%23%20The%20reactive%20value%20for%20filtering%0A%0A%20%20%20%20%23%20Filter%20for%20the%20selected%20year%20and%20count%20occurrences%20of%20Winner_Country%0A%20%20%20%20df_year%20%3D%20df%5Bdf%5B%22Date%22%5D.dt.year%20%3D%3D%20selected_year%5D%0A%20%20%20%20country_counts%20%3D%20df_year%5B%22Winner_Country%22%5D.value_counts().reset_index()%0A%20%20%20%20country_counts.columns%20%3D%20%5B%22iso_a3%22%2C%20%22count%22%5D%0A%0A%20%20%20%20%23%20Merge%20occurrence%20counts%20with%20the%20world%20GeoDataFrame%20and%20fill%20missing%20counts%20with%200%0A%20%20%20%20world%20%3D%20world.merge(country_counts%2C%20on%3D%22iso_a3%22%2C%20how%3D%22left%22)%0A%20%20%20%20world%5B%22count%22%5D%20%3D%20world%5B%22count%22%5D.fillna(0)%0A%0A%20%20%20%20%23%20Filter%20for%20European%20countries%20(assuming%20a%20'CONTINENT'%20column%20exists)%0A%20%20%20%20europe%20%3D%20world%5Bworld%5B%22CONTINENT%22%5D%20%3D%3D%20%22Europe%22%5D%0A%0A%20%20%20%20%23%20Create%20a%20figure%20with%20two%20subplots%3A%20one%20for%20the%20world%20map%2C%20one%20for%20zoomed-in%20continental%20Europe%0A%20%20%20%20fig%2C%20(ax1%2C%20ax2)%20%3D%20plt.subplots(1%2C%202%2C%20figsize%3D(24%2C%206))%0A%0A%20%20%20%20%23%20Plot%20world%20map%20with%20occurrence%20counts%0A%20%20%20%20world.plot(column%3D%22count%22%2C%20cmap%3D%22Blues%22%2C%20linewidth%3D0.8%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20edgecolor%3D%22black%22%2C%20legend%3DTrue%2C%20ax%3Dax1)%0A%20%20%20%20ax1.set_title(f%22Stage%20winners%20in%20(%7Bselected_year%7D)%20-%20World%22%2C%20fontsize%3D14)%0A%0A%20%20%20%20%23%20Plot%20continental%20Europe%20(zoomed%20in)%20with%20occurrence%20counts%0A%20%20%20%20europe.plot(column%3D%22count%22%2C%20cmap%3D%22Greens%22%2C%20linewidth%3D0.8%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20edgecolor%3D%22black%22%2C%20legend%3DTrue%2C%20ax%3Dax2)%0A%20%20%20%20ax2.set_title(f%22Stage%20winners%20in%20(%7Bselected_year%7D)%20-%20Continental%20Europe%22%2C%20fontsize%3D14)%0A%20%20%20%20ax2.set_xlim(-25%2C%2045)%0A%20%20%20%20ax2.set_ylim(34%2C%2072)%0A%20%20%20%20ax2.set_aspect('equal')%0A%0A%20%20%20%20plt.tight_layout()%0A%0A%20%20%20%20import%20base64%0A%20%20%20%20import%20io%0A%0A%0A%20%20%20%20%23%20(Your%20plotting%20code%20here%3B%20assume%20%60fig%60%20is%20your%20Matplotlib%20figure)%0A%20%20%20%20%23%20For%20example%3A%0A%20%20%20%20%23%20fig%2C%20ax%20%3D%20plt.subplots()%0A%20%20%20%20%23%20ax.plot(%5B1%2C%202%2C%203%5D%2C%20%5B4%2C%205%2C%206%5D)%0A%20%20%20%20%23%20ax.set_title(%22My%20Plot%22)%0A%0A%20%20%20%20%23%20Save%20the%20figure%20into%20an%20in-memory%20buffer%20in%20PNG%20format%0A%20%20%20%20buf%20%3D%20io.BytesIO()%0A%20%20%20%20fig.savefig(buf%2C%20format%3D'png'%2C%20bbox_inches%3D'tight')%0A%20%20%20%20buf.seek(0)%0A%0A%20%20%20%20%23%20Encode%20the%20PNG%20image%20to%20a%20base64%20string%0A%20%20%20%20img_base64%20%3D%20base64.b64encode(buf.getvalue()).decode('utf-8')%0A%0A%20%20%20%20%23%20Create%20an%20HTML%20snippet%20that%20embeds%20the%20image%0A%20%20%20%20html_code%20%3D%20f%22%22%22%0A%20%20%20%20%20%20%3Cimg%20src%3D%22data%3Aimage%2Fpng%3Bbase64%2C%7Bimg_base64%7D%22%20%0A%20%20%20%20%20%20%20%20%20%20%20alt%3D%22Plot%22%20%0A%20%20%20%20%20%20%20%20%20%20%20style%3D%22max-width%3A%20100%25%3B%20height%3A%20auto%3B%22%20%2F%3E%0A%20%20%20%20%22%22%22%0A%0A%20%20%20%20%23%20Use%20the%20HTML%20widget%20to%20display%20the%20image%20alongside%20your%20slider.%0A%20%20%20%20%23%20(Check%20your%20version%20of%20Marimo%20whether%20a%20function%20like%20mo.ui.html%20is%20available.)%0A%20%20%20%20mo.vstack(%5Bmo.md(f%22Nationality%20of%20stage%20winners%20in%20%7Bselected_year%7D%22)%2C%20year_slider%2C%20mo.Html(html_code)%5D)%0A%20%20%20%20return%0A%0A%0Aapp._unparsable_cell(%0A%20%20%20%20r%22%22%22%0A%20%20%20%20marimo%20export%20html-wasm%20_test3.py%20-o%20%5C%22testrr%5C%22%20--mode%20run%0A%20%20%20%20%22%22%22%2C%0A%20%20%20%20name%3D%22_%22%0A)%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
